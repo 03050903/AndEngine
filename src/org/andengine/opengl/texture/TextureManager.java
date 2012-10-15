@@ -328,4 +328,9 @@ public class TextureManager {
 	// ===========================================================
 	// Inner and Anonymous Classes
 	// ===========================================================
+	public void unloadManagedTextures() {
+        for (ITexture texture : mTexturesManaged) {
+           unloadTexture(texture);
+        }
+    }
 }
