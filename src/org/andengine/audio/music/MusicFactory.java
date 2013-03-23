@@ -7,6 +7,7 @@ import java.io.IOException;
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
+import android.util.Log;
 
 /**
  * (c) 2010 Nicolas Gramlich 
@@ -76,6 +77,7 @@ public class MusicFactory {
 	public static Music createMusicFromAsset(final MusicManager pMusicManager, final Context pContext, final String pAssetPath) throws IOException {
 		final MediaPlayer mediaPlayer = new MediaPlayer();
 
+		Log.d("MusicManager", "Path: "+MusicFactory.sAssetBasePath + pAssetPath);
 		final AssetFileDescriptor assetFileDescritor = pContext.getAssets().openFd(MusicFactory.sAssetBasePath + pAssetPath);
 		mediaPlayer.setDataSource(assetFileDescritor.getFileDescriptor(), assetFileDescritor.getStartOffset(), assetFileDescritor.getLength());
 		mediaPlayer.prepare();
